@@ -20,8 +20,10 @@ resource "aws_sns_topic" "lambda_alerts" {
   name = "lambda-alerts-topic"
 }
 
+/*
 resource "aws_sns_topic_subscription" "email_sub" {
   topic_arn = aws_sns_topic.lambda_alerts.arn
   protocol  = "email"
   endpoint  = "zanjero3333@gmail.com"
 }
+*/
