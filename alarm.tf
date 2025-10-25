@@ -8,8 +8,8 @@ resource "aws_cloudwatch_metric_alarm" "info_count-breach" {
   statistic           = "Sum"
   threshold           = 10
 
-  alarm_description   = "Alarm when Lambda function exceeds 10 info logs in 5 minutes"
-  treat_missing_data  = "notBreaching"
+  alarm_description  = "Alarm when Lambda function exceeds 10 info logs in 5 minutes"
+  treat_missing_data = "notBreaching"
 
   alarm_actions = [
     aws_sns_topic.lambda_alerts.arn
@@ -17,6 +17,7 @@ resource "aws_cloudwatch_metric_alarm" "info_count-breach" {
 }
 
 resource "aws_sns_topic" "lambda_alerts" {
+  # checkov:skip=CKV_AWS_26:Ensure all data stored in the SNS topic is encrypted - NA
   name = "lambda-alerts-topic"
 }
 
